@@ -1,0 +1,113 @@
+%header_footer_font_style
+  font-family: 'Caveat', cursive
+  font-weight: bold
+  text-align: center
+
+%bg_header_footer
+  background: url("../img/logo/logo-bg.jpg")
+
+//шрифт и размер шрифта основной части страниц
+%container_font_family_fz
+  font-family: 'Roboto', sans-serif
+  font-size: 18px
+
+.header
+  @extend %bg_header_footer
+  position: relative
+  text-align: center
+
+  .logo
+    display: inline-block
+    text-align: left
+    padding-top: 5px
+
+  .nav
+    height: 50px
+
+    position: relative
+
+  .navigation
+    display: inline-block
+    list-style: none
+    background: #f9dc63
+
+    width: 100%
+    height: 100%
+
+    li
+      display: inline-block
+
+      margin: 10px 10px
+
+      a
+        &.menu-link
+          @extend %container_font_family_fz
+
+          color: #453886
+          text-decoration: none
+
+          font-size: 20px
+          font-weight: bold
+
+          &:not(.current)
+
+            &::before,
+            &::after
+              display: inline-block
+              opacity: 0
+              -webkit-transition: -webkit-transform 0.3s, opacity 0.2s
+              -moz-transition: -moz-transform 0.3s, opacity 0.2s
+              transition: transform 0.3s, opacity 0.2s
+
+            &::before
+              margin-right: 10px
+              content: '['
+              -webkit-transform: translateX(20px)
+              -moz-transform: translateX(20px)
+              transform: translateX(20px)
+
+            &::after
+              margin-left: 10px
+              content: ']'
+              -webkit-transform: translateX(-20px)
+              -moz-transform: translateX(-20px)
+              transform: translateX(-20px)
+
+            &:hover::before,
+            &:hover::after,
+            &:focus::before,
+            &:focus::after
+              opacity: 1
+              -webkit-transform: translateX(0px)
+              -moz-transform: translateX(0px)
+              transform: translateX(0px)
+
+  .nav-trigger
+    display: none
+
+  .nav-trigger:checked ~ .navigation li
+    display: inline-block
+
+
+  label[for="nav-trigger"]
+    position: absolute
+    top: 210px
+    left: 5px
+    z-index: 5
+
+    width: 40px
+    height: 40px
+
+    display: none
+
+    cursor: pointer
+    background-image: url("../img/menu_2.svg")
+
+
+
+
+
+
+
+
+

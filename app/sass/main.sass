@@ -1,0 +1,310 @@
+//стили плагинов
+@import "_libs"
+
+//стили для заголовка
+@import "header"
+
+//картинка после ссылки на текущей странице
+@import "link_current_page"
+
+//стили для подвала
+@import "footer"
+
+//псеведо-распорка
+.clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+
+//шрифт и размер шрифта основной части страниц
+%container_font_family_fz
+  font-family: 'Roboto', sans-serif
+  font-size: 18px
+
+//фон основной части страниц
+$bg_container: rgba(255, 255, 255, .7)
+
+//ширана основной части страниц
+$width_container: 50%
+$min-width: 320px
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  -webkit-text-size-adjust: none
+
+.element0
+  background: url('../img/background/valentino_rossi.jpg') no-repeat fixed
+
+.element1
+  background: url('../img/background/1.jpg') no-repeat fixed
+
+.element2
+  background: url('../img/background/2.jpg') no-repeat fixed
+
+.element3
+  background: url('../img/background/3.jpg') no-repeat fixed
+
+body
+  //background: url(../img/background/valentino_rossi.jpg) no-repeat fixed
+  transition: all 1s ease-in-out
+  color: black
+
+//основная область всех страниц
+.container
+
+  position: relative
+  left: 0
+  top: 0
+
+  background: $bg_container
+  width: $width_container
+  min-width: $min-width
+
+  padding: 10px 10px 100px 10px
+  margin: 0 auto
+
+  @extend %container_font_family_fz
+
+  //страница index.html
+  &.index
+    h1
+      font-size: 22px
+      text-align: center
+
+      margin: 0 0 20px 0
+
+    h2
+      font-size: 20px
+      text-align: center
+
+      margin: 0 0 20px 0
+
+    p
+      margin: 10px 10px
+
+      text-align: justify
+
+    .track
+      text-align: center
+
+  //страница team.html
+  &.team
+
+    .item
+      margin: 20px 0
+      padding-bottom: 20px
+
+      h2
+        margin-bottom: 20px
+
+        font-size: 20px
+
+      p
+        text-align: justify
+
+      .podrezov, .luckov
+        float: right
+        margin-left: 20px
+        position: relative
+
+      .ratobilskaya, .borovoi
+        float: left
+        margin-right: 20px
+        position: relative
+
+      .member
+        a
+          display: block
+          position: relative
+
+          &:after
+            content: ''
+            background: url(../img/eye-icon.png) no-repeat center
+            width: 52px
+            height: 35px
+            position: absolute
+            margin: auto
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0
+            visibility: hidden
+
+          &:hover
+            cursor: zoom-in
+            &::after
+              visibility: visible
+
+  //страница contacts.html
+  &.contacts
+
+    text-align: center
+
+    h2
+      text-align: center
+      font-size: 20px
+
+    label
+      display: block
+
+      margin: 20px 20px 10px 20px
+
+      font-size: 18px
+      text-align: left
+
+    input
+      padding: 10px 10px
+      width: 90%
+      height: 50px
+
+      font-size: 18px
+
+    textarea
+      @extend %container_font_family_fz
+
+      resize: none
+      padding: 10px 10px
+      width: 90%
+
+
+    .button
+      display: inline-block
+      margin: 15px 10px 0px 10px
+      width: 150px
+      height: 50px
+
+      &:hover
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+
+  //страница gallery.html
+  &.gallery
+
+    .gallery_body
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      align-items: center
+      justify-content: space-around
+
+      .photo
+        transition-duration: 100ms
+
+        &:hover
+          transform: scale(1.05)
+        a
+          &:after
+            content: ''
+            background: url(../img/eye-icon.png) no-repeat center
+            width: 52px
+            height: 35px
+            position: absolute
+            margin: auto
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0
+            visibility: hidden
+
+          &:hover
+            cursor: zoom-in
+            &::after
+              visibility: visible
+
+    .video
+      margin-top: 20px
+      text-align: center
+
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      justify-content: space-around
+
+      iframe
+        margin-top: 10px
+        margin-bottom: 10px
+
+
+  //страница map.html
+  &.map
+    padding: 0
+
+    text-align: center
+
+    overflow: hidden
+    position: relative
+
+//изменение ширины основного блока страниц
+@media all and (max-width: 1024px)
+  .container
+    width: 70%
+
+
+@media all and (max-width: 900px)
+  .container
+    width: 100%
+    font-size: 16px
+
+    &.index
+      h1
+        font-size: 20px
+
+    &.contacts
+      h2
+        font-size: 18px
+      label,
+      input,
+      textarea
+
+        font-size: 16px
+
+    &.gallery
+      .gallery_body
+        border: none
+
+      .video
+        border: none
+
+    &.team
+      .item
+        h2
+          text-align: center
+        .member
+          float: none
+          text-align: center
+
+          margin-bottom: 20px
+          margin-left: 0
+
+
+//изменение меню при масштабировании
+@media all and (max-width: 700px)
+  .header
+    .navigation
+      padding-left: 20px
+      text-align: left
+      width: 70%
+      margin-bottom: 10px
+      border-radius: 10px
+
+      li
+        display: none
+
+    label[for="nav-trigger"]
+      display: inline-block
+
+    .nav-trigger:checked ~ .navigation li
+      display: block
+
+@media all and (max-width: 460px)
+  .container
+    &.gallery
+      padding: 3px 3px 100px 3px
+      iframe
+        width: 300px
+
+
+
+

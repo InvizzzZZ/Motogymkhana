@@ -1,0 +1,38 @@
+
+%header_footer_font_style
+  font-family: 'Caveat', cursive
+  font-size: 35px
+  font-weight: bold
+  text-align: center
+
+%bg_header_footer
+  background: url("../img/logo/logo-bg.jpg")
+
+.footer
+  @extend %bg_header_footer
+  @extend %header_footer_font_style
+
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+
+  font-size: 20px
+  padding: 10px 0
+  color: #fff
+
+  .icons
+    a
+      text-decoration: none
+    img
+      margin: 0 5px
+      height: 25px
+      width: 25px
+      transition-duration: 200ms
+
+    img:hover
+      transform: scale(1.3)
+
+    .arrow_up
+      position: fixed
+      right: 20px
